@@ -29,16 +29,6 @@ namespace Hospital
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            //Send details to server to validate.
-
-            //On successful response, store session data and go to main menu.
-            MainMenuAdmin m = new MainMenuAdmin(this);
-            
-            //Hide this menu.
-            Hide();
-
-            //Show admin menu.
-            m.Show();
         }
     }
 }
