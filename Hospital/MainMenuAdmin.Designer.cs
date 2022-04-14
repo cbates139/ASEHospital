@@ -82,7 +82,6 @@ namespace Hospital
             this.imageLogo.Size = new System.Drawing.Size(100, 100);
             this.imageLogo.TabIndex = 3;
             this.imageLogo.TabStop = false;
-            this.imageLogo.Click += new System.EventHandler(this.imageLogo_Click);
             // 
             // linkLabel1
             // 

@@ -6,7 +6,7 @@ namespace Hospital.Models
 {
     public class PiiModel
     {
-        public int Id { get; set; }
+        private int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string MobileNo { get; set; }

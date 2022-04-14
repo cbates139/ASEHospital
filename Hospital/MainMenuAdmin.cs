@@ -27,15 +27,5 @@ namespace Hospital
             //Close this menu.
             Close();
         }
-
-        private void imageLogo_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

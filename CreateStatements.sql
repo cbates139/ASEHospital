@@ -1,4 +1,3 @@
-﻿-- Primary tables
 
 CREATE TABLE [dbo].[Address] (
     AddressID INT  NOT NULL IDENTITY(1,1) PRIMARY KEY,
@@ -111,5 +110,11 @@ CREATE TABLE [dbo].[Service] (
     MemberID INT NOT NULL,
     CONSTRAINT FK_Service_LID FOREIGN KEY (LeaderID) REFERENCES [dbo].[Staff](StaffID),
     CONSTRAINT FK_Service_MID FOREIGN KEY (MemberID) REFERENCES [dbo].[Staff](StaffID)
+);
+CREATE TABLE [dbo].[RecordStaff] (
+    StaffID INT NOT NULL,
+    RecordID INT NOT NULL,
+    CONSTRAINT FK_RS_SID FOREIGN KEY (StaffID) REFERENCES [dbo].[Staff](StaffID),
+    CONSTRAINT FK_RS_RID FOREIGN KEY (RecordID) REFERENCES [dbo].[Record](RecordID)
 );
 
