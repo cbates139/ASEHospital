@@ -112,6 +112,7 @@ CREATE TABLE [dbo].[Service] (
     CONSTRAINT FK_Service_LID FOREIGN KEY (LeaderID) REFERENCES [dbo].[Staff](StaffID),
     CONSTRAINT FK_Service_MID FOREIGN KEY (MemberID) REFERENCES [dbo].[Staff](StaffID)
 );
+
 CREATE TABLE [dbo].[RecordStaff] (
     StaffID INT NOT NULL,
     RecordID INT NOT NULL,
@@ -119,3 +120,96 @@ CREATE TABLE [dbo].[RecordStaff] (
     CONSTRAINT FK_RS_RID FOREIGN KEY (RecordID) REFERENCES [dbo].[Record](RecordID)
 );
 
+-- Dylan's Dummy Data
+-- Yeah all staff live at the same address because I'm lazy.
+INSERT INTO [dbo].[Address] (
+    AddressLine1,
+    City,
+    Region,
+    PostCode
+)
+VALUES (
+    (
+        '1 Arundel Street',
+        'Sheffield',
+        'South Yorkshire',
+        'ABC DE'
+    )
+)
+-- A bunch of staff accounts.
+INSERT INTO [dbo].[Staff] (
+    FirstName,
+    LastName,
+    Email,
+    AddressID
+)
+VALUES (
+    (
+        'Alice',
+        'Adams',
+        'a.adams@hospitalmail.com',
+        1
+    ),
+    (
+        'Bob',
+        'Beckett',
+        'b.beckett@hospitalmail.com',
+        1
+    ),
+    (
+        'Charlie',
+        'Chaplain',
+        'c.omedy@hospitalmail.com',
+        1
+    ),
+    (
+        'Derren',
+        'Icks',
+        'd.icks@hospitalmail.com',
+        1
+    ),
+    (
+        'Eleanor',
+        'Jit',
+        'e.jit@hospitalmail.com',
+        1
+    ),
+    (
+        'Franklain',
+        'Uckle',
+        'f.uckle@hospitalmail.com',
+        1
+    ),
+    (
+        'Gary',
+        'Glitter',
+        'g.glitter@hospitalmail.com',
+        1
+    ),
+    (
+        'Harry',
+        'Hill',
+        'h.hill@hospitalmail.com',
+        1
+    ),
+    (
+        'Ida',
+        'Smirnoff',
+        'i.smirnoff@hospitalmail.com',
+        1
+    )
+)
+
+-- Services
+INSERT INTO [dbo].[Service] (
+    LeaderID,
+    MemberID,
+)
+VALUES (
+    ( 1,4 ),
+    ( 1,5 ),
+    ( 2,6 ),
+    ( 2,7 ),
+    ( 3,8 ),
+    ( 3,9 )
+)
