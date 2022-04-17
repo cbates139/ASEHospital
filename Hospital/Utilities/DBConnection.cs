@@ -9,9 +9,9 @@ namespace Hospital.Utilities
 {
     static class DBConnection
     {
-        public static string ServerURL { get; private set; }
+        public static string ServerURL { get; private set; } = "server=(localdb)\\ProjectsV13;Database=HospitalDB";
 
-        static SqlConnection connection;
+        static SqlConnection connection = new SqlConnection(ServerURL);
 
 
         public static void SetURL(string URL)
@@ -24,12 +24,11 @@ namespace Hospital.Utilities
         {
             connection.Open();
             SqlCommand cmd = new SqlCommand(
-                $"SELECT Consultant.first_name, Consultant.last_name, Consultant.staff_id, " +
-                $"Junior.first_name, Junior.last_name, Junior.staff_id FROM Service" +
-                $"LEFT JOIN DoctorStaff as Junior ON Junior.staff_id == member_id" +
-                $"LEFT JOIN DoctorStaff as Consultant ON Consultant.staff_id == leader_id" +
-                $"GROUP BY Consultant.staff_id" +
-                $"ORDER BY Junior.last_name",
+                $"SELECT c.FirstName, c.LastName, c.StaffID, " +
+                $"j.FirstName, j.LastName, j.StaffID FROM Service " +
+                $"RIGHT JOIN Staff AS j ON j.StaffID = MemberID " +
+                $"RIGHT JOIN Staff AS c ON c.StaffID = LeaderID " +
+                $"ORDER BY LeaderID ",
                 connection
                 );
 
@@ -40,27 +39,29 @@ namespace Hospital.Utilities
             while (reader.Read())
             {
                 //If consultant isn't in the list...
-                if (!services.Exists((model) => { return model.Consultant.staff_id == (int)reader["Consultant.staff_id"]; }))
+                if (!services.Exists((model) => { return model.Consultant.staff_id == (int)reader["c.StaffID"]; }))
                     services.Add(new ServiceModel
                     {
                         Consultant = new StaffModel
                         {
-                            staff_id = (int)reader["Consultant.staff_id"],
-                            first_name = (string)reader["Consultant.first_name"],
-                            last_name = (string)reader["Consultant.last_name"]
+                            staff_id = (int)reader["c.StaffID"],
+                            first_name = (string)reader["c.FirstName"],
+                            last_name = (string)reader["c.LastName"]
                         },
                     });
 
-                ServiceModel model = services.First((modelA) => { return modelA.Consultant.staff_id == (int)reader["Consultant.staff_id"]; });
+                ServiceModel model = services.First((modelA) => { return modelA.Consultant.staff_id == (int)reader["c.StaffID"]; });
 
 
                 model.Juniors.Add(new StaffModel
                 {
-                    staff_id = (int)reader["Junior.staff_id"],
-                    first_name = (string)reader["Junior.first_name"],
-                    last_name = (string)reader["Junior.last_name"]
+                    staff_id = (int)reader["j.StaffID"],
+                    first_name = (string)reader["j.FirstName"],
+                    last_name = (string)reader["j.LastName"]
                 });
             }
+
+            connection.Close();
 
             return services;
             

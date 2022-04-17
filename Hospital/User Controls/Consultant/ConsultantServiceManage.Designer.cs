@@ -32,13 +32,15 @@ namespace Hospital.User_Controls
             this.viewService_button = new System.Windows.Forms.Button();
             this.editService_button = new System.Windows.Forms.Button();
             this.createService_button = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // viewService_button
             // 
             this.viewService_button.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.viewService_button.Location = new System.Drawing.Point(377, 284);
-            this.viewService_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.viewService_button.Enabled = false;
+            this.viewService_button.Location = new System.Drawing.Point(332, 6);
+            this.viewService_button.Margin = new System.Windows.Forms.Padding(2);
             this.viewService_button.Name = "viewService_button";
             this.viewService_button.Size = new System.Drawing.Size(161, 58);
             this.viewService_button.TabIndex = 5;
@@ -48,33 +50,43 @@ namespace Hospital.User_Controls
             // editService_button
             // 
             this.editService_button.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.editService_button.Location = new System.Drawing.Point(377, 206);
-            this.editService_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.editService_button.Location = new System.Drawing.Point(167, 2);
+            this.editService_button.Margin = new System.Windows.Forms.Padding(2);
             this.editService_button.Name = "editService_button";
             this.editService_button.Size = new System.Drawing.Size(161, 62);
             this.editService_button.TabIndex = 4;
             this.editService_button.Text = "Edit Service";
             this.editService_button.UseVisualStyleBackColor = true;
+            this.editService_button.Click += new System.EventHandler(this.editService_button_Click);
             // 
             // createService_button
             // 
             this.createService_button.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.createService_button.Location = new System.Drawing.Point(377, 130);
-            this.createService_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.createService_button.Enabled = false;
+            this.createService_button.Location = new System.Drawing.Point(2, 2);
+            this.createService_button.Margin = new System.Windows.Forms.Padding(2);
             this.createService_button.Name = "createService_button";
             this.createService_button.Size = new System.Drawing.Size(161, 62);
             this.createService_button.TabIndex = 3;
             this.createService_button.Text = "Create Service";
             this.createService_button.UseVisualStyleBackColor = true;
             // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(3, 69);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1164, 477);
+            this.panel1.TabIndex = 6;
+            // 
             // ConsultantServiceManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.viewService_button);
             this.Controls.Add(this.editService_button);
             this.Controls.Add(this.createService_button);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ConsultantServiceManage";
             this.Size = new System.Drawing.Size(1170, 549);
             this.ResumeLayout(false);
@@ -86,5 +98,6 @@ namespace Hospital.User_Controls
         private System.Windows.Forms.Button viewService_button;
         private System.Windows.Forms.Button editService_button;
         private System.Windows.Forms.Button createService_button;
+        private System.Windows.Forms.Panel panel1;
     }
 }
