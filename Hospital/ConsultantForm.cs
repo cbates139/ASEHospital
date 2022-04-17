@@ -1,4 +1,5 @@
 ﻿using Hospital.User_Controls;
+using Hospital.User_Controls.Consultant;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -33,7 +34,7 @@ namespace Hospital
         private void InitialiseNavigationControl()
         {
             List<UserControl> userControls = new List<UserControl>() //User Control List
-            { new ConsultantHome(), new ConsultantPatientView(),  new ConsultantServiceManage()};
+            { new ConsultantHome(), new ConsultantPatientView(),  new ConsultantServiceManage(), new ServiceManagement()};
 
             navigationControl = new NavigationControl(userControls, panel2); //Create instance of navigation control class
             navigationControl.Display(0); //display  UserControl as Default

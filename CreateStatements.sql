@@ -122,20 +122,27 @@ CREATE TABLE [dbo].[RecordStaff] (
 
 -- Dylan's Dummy Data
 -- Yeah all staff live at the same address because I'm lazy.
+DELETE FROM Service WHERE LeaderID=LeaderID
+DELETE FROM Staff WHERE StaffID=StaffID
+DELETE FROM Address WHERE AddressID=AddressID
+DBCC CHECKIDENT ('Address', RESEED, 0);
+DBCC CHECKIDENT ('Staff', RESEED, 0);
+DBCC CHECKIDENT ('Service', RESEED, 0);
+
 INSERT INTO [dbo].[Address] (
     AddressLine1,
     City,
     Region,
     PostCode
 )
-VALUES (
+VALUES
     (
         '1 Arundel Street',
         'Sheffield',
         'South Yorkshire',
         'ABC DE'
-    )
-)
+    );
+
 -- A bunch of staff accounts.
 INSERT INTO [dbo].[Staff] (
     FirstName,
@@ -144,72 +151,69 @@ INSERT INTO [dbo].[Staff] (
     AddressID
 )
 VALUES (
-    (
         'Alice',
         'Adams',
-        'a.adams@hospitalmail.com',
+        'a.adams@mail.com',
         1
     ),
     (
         'Bob',
         'Beckett',
-        'b.beckett@hospitalmail.com',
+        'b.beckett@mail.com',
         1
     ),
     (
         'Charlie',
         'Chaplain',
-        'c.omedy@hospitalmail.com',
+        'c.omedy@mail.com',
         1
     ),
     (
         'Derren',
         'Icks',
-        'd.icks@hospitalmail.com',
+        'd.icks@mail.com',
         1
     ),
     (
         'Eleanor',
         'Jit',
-        'e.jit@hospitalmail.com',
+        'e.jit@mail.com',
         1
     ),
     (
         'Franklain',
         'Uckle',
-        'f.uckle@hospitalmail.com',
+        'f.uckle@mail.com',
         1
     ),
     (
         'Gary',
         'Glitter',
-        'g.glitter@hospitalmail.com',
+        'g.glitter@mail.com',
         1
     ),
     (
         'Harry',
         'Hill',
-        'h.hill@hospitalmail.com',
+        'h.hill@mail.com',
         1
     ),
     (
         'Ida',
         'Smirnoff',
-        'i.smirnoff@hospitalmail.com',
+        'i.smirnoff@mail.com',
         1
-    )
-)
+    );
 
 -- Services
 INSERT INTO [dbo].[Service] (
     LeaderID,
-    MemberID,
+    MemberID
 )
-VALUES (
+VALUES
     ( 1,4 ),
     ( 1,5 ),
     ( 2,6 ),
     ( 2,7 ),
     ( 3,8 ),
-    ( 3,9 )
-)
+    ( 3,9 );
