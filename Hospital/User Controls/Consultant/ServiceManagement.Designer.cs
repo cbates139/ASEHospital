@@ -43,9 +43,10 @@ namespace Hospital.User_Controls.Consultant
             // 
             // dropdownConsultant1
             // 
+            this.dropdownConsultant1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dropdownConsultant1.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dropdownConsultant1.FormattingEnabled = true;
-            this.dropdownConsultant1.Location = new System.Drawing.Point(141, 93);
+            this.dropdownConsultant1.Location = new System.Drawing.Point(43, 43);
             this.dropdownConsultant1.Name = "dropdownConsultant1";
             this.dropdownConsultant1.Size = new System.Drawing.Size(252, 31);
             this.dropdownConsultant1.Sorted = true;
@@ -55,8 +56,9 @@ namespace Hospital.User_Controls.Consultant
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(141, 75);
+            this.label1.Location = new System.Drawing.Point(43, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 15);
             this.label1.TabIndex = 3;
@@ -66,10 +68,11 @@ namespace Hospital.User_Controls.Consultant
             // 
             // listBox1
             // 
+            this.listBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.listBox1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 28;
-            this.listBox1.Location = new System.Drawing.Point(141, 140);
+            this.listBox1.Location = new System.Drawing.Point(43, 90);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(252, 228);
             this.listBox1.Sorted = true;
@@ -78,10 +81,11 @@ namespace Hospital.User_Controls.Consultant
             // 
             // listBox2
             // 
+            this.listBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.listBox2.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.listBox2.FormattingEnabled = true;
             this.listBox2.ItemHeight = 28;
-            this.listBox2.Location = new System.Drawing.Point(759, 140);
+            this.listBox2.Location = new System.Drawing.Point(661, 90);
             this.listBox2.Name = "listBox2";
             this.listBox2.Size = new System.Drawing.Size(252, 228);
             this.listBox2.Sorted = true;
@@ -90,8 +94,9 @@ namespace Hospital.User_Controls.Consultant
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(759, 75);
+            this.label2.Location = new System.Drawing.Point(661, 25);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 15);
             this.label2.TabIndex = 6;
@@ -100,9 +105,10 @@ namespace Hospital.User_Controls.Consultant
             // 
             // dropdownConsultant2
             // 
+            this.dropdownConsultant2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dropdownConsultant2.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dropdownConsultant2.FormattingEnabled = true;
-            this.dropdownConsultant2.Location = new System.Drawing.Point(759, 93);
+            this.dropdownConsultant2.Location = new System.Drawing.Point(661, 43);
             this.dropdownConsultant2.Name = "dropdownConsultant2";
             this.dropdownConsultant2.Size = new System.Drawing.Size(252, 31);
             this.dropdownConsultant2.Sorted = true;
@@ -112,8 +118,9 @@ namespace Hospital.User_Controls.Consultant
             // 
             // buttonToLeft
             // 
+            this.buttonToLeft.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonToLeft.Enabled = false;
-            this.buttonToLeft.Location = new System.Drawing.Point(495, 168);
+            this.buttonToLeft.Location = new System.Drawing.Point(397, 118);
             this.buttonToLeft.Name = "buttonToLeft";
             this.buttonToLeft.Size = new System.Drawing.Size(150, 40);
             this.buttonToLeft.TabIndex = 8;
@@ -123,8 +130,9 @@ namespace Hospital.User_Controls.Consultant
             // 
             // buttonToRight
             // 
+            this.buttonToRight.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonToRight.Enabled = false;
-            this.buttonToRight.Location = new System.Drawing.Point(495, 122);
+            this.buttonToRight.Location = new System.Drawing.Point(397, 72);
             this.buttonToRight.Name = "buttonToRight";
             this.buttonToRight.Size = new System.Drawing.Size(150, 40);
             this.buttonToRight.TabIndex = 9;
@@ -134,8 +142,9 @@ namespace Hospital.User_Controls.Consultant
             // 
             // buttonSave
             // 
+            this.buttonSave.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonSave.Enabled = false;
-            this.buttonSave.Location = new System.Drawing.Point(495, 289);
+            this.buttonSave.Location = new System.Drawing.Point(397, 239);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(150, 40);
             this.buttonSave.TabIndex = 10;
@@ -145,7 +154,9 @@ namespace Hospital.User_Controls.Consultant
             // 
             // buttonReset
             // 
-            this.buttonReset.Location = new System.Drawing.Point(495, 238);
+            this.buttonReset.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonReset.Enabled = false;
+            this.buttonReset.Location = new System.Drawing.Point(397, 188);
             this.buttonReset.Name = "buttonReset";
             this.buttonReset.Size = new System.Drawing.Size(150, 40);
             this.buttonReset.TabIndex = 11;
@@ -157,6 +168,7 @@ namespace Hospital.User_Controls.Consultant
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.Controls.Add(this.buttonReset);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.buttonToRight);
@@ -169,7 +181,7 @@ namespace Hospital.User_Controls.Consultant
             this.Controls.Add(this.dropdownConsultant1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ServiceManagement";
-            this.Size = new System.Drawing.Size(1164, 477);
+            this.Size = new System.Drawing.Size(971, 405);
             this.Load += new System.EventHandler(this.ServiceManagement_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

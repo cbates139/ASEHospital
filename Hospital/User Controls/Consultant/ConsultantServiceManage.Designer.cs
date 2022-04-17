@@ -39,7 +39,7 @@ namespace Hospital.User_Controls
             // 
             this.viewService_button.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.viewService_button.Enabled = false;
-            this.viewService_button.Location = new System.Drawing.Point(332, 6);
+            this.viewService_button.Location = new System.Drawing.Point(333, 6);
             this.viewService_button.Margin = new System.Windows.Forms.Padding(2);
             this.viewService_button.Name = "viewService_button";
             this.viewService_button.Size = new System.Drawing.Size(161, 58);
@@ -50,7 +50,7 @@ namespace Hospital.User_Controls
             // editService_button
             // 
             this.editService_button.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.editService_button.Location = new System.Drawing.Point(167, 2);
+            this.editService_button.Location = new System.Drawing.Point(168, 2);
             this.editService_button.Margin = new System.Windows.Forms.Padding(2);
             this.editService_button.Name = "editService_button";
             this.editService_button.Size = new System.Drawing.Size(161, 62);
@@ -63,7 +63,7 @@ namespace Hospital.User_Controls
             // 
             this.createService_button.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.createService_button.Enabled = false;
-            this.createService_button.Location = new System.Drawing.Point(2, 2);
+            this.createService_button.Location = new System.Drawing.Point(3, 2);
             this.createService_button.Margin = new System.Windows.Forms.Padding(2);
             this.createService_button.Name = "createService_button";
             this.createService_button.Size = new System.Drawing.Size(161, 62);
@@ -75,7 +75,7 @@ namespace Hospital.User_Controls
             // 
             this.panel1.Location = new System.Drawing.Point(3, 69);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1164, 477);
+            this.panel1.Size = new System.Drawing.Size(1048, 519);
             this.panel1.TabIndex = 6;
             // 
             // ConsultantServiceManage
@@ -87,8 +87,10 @@ namespace Hospital.User_Controls
             this.Controls.Add(this.editService_button);
             this.Controls.Add(this.createService_button);
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximumSize = new System.Drawing.Size(1054, 591);
+            this.MinimumSize = new System.Drawing.Size(1054, 591);
             this.Name = "ConsultantServiceManage";
-            this.Size = new System.Drawing.Size(1170, 549);
+            this.Size = new System.Drawing.Size(1054, 591);
             this.ResumeLayout(false);
 
         }

@@ -180,6 +180,8 @@ namespace Hospital
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(210, 90);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
+            this.panel2.MaximumSize = new System.Drawing.Size(1054, 591);
+            this.panel2.MinimumSize = new System.Drawing.Size(1054, 591);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1054, 591);
             this.panel2.TabIndex = 6;
