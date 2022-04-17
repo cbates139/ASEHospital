@@ -2,20 +2,69 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Text;
+using System.Linq;
+using Hospital.Models;
 
 namespace Hospital.Utilities
 {
     static class DBConnection
     {
-        public static string ServerURL { get; private set; }
+        public static string ServerURL { get; private set; } = "server=(localdb)\\ProjectsV13;Database=HospitalDB";
 
-        static SqlConnection connection;
+        static SqlConnection connection = new SqlConnection(ServerURL);
 
 
         public static void SetURL(string URL)
         {
             ServerURL = URL;
-            connection = new SqlConnection();
+            connection = new SqlConnection(ServerURL);
+        }
+
+        public static List<ServiceModel> GetConsultantServices()
+        {
+            connection.Open();
+            SqlCommand cmd = new SqlCommand(
+                $"SELECT c.FirstName as CFName, c.LastName as CLName, c.StaffID as CStaffID, " +
+                $"j.FirstName, j.LastName, j.StaffID FROM Service " +
+                $"JOIN Staff AS j ON j.StaffID = MemberID " +
+                $"JOIN Staff AS c ON c.StaffID = LeaderID " +
+                $"ORDER BY LeaderID ",
+                connection
+                );
+
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            List<ServiceModel> services = new List<ServiceModel>();
+
+            while (reader.Read())
+            {
+                //If consultant isn't in the list...
+                if (!services.Exists((model) => { return model.Consultant.staff_id == (int)reader["CStaffID"]; }))
+                    services.Add(new ServiceModel
+                    {
+                        Consultant = new StaffModel
+                        {
+                            staff_id = (int)reader["CStaffID"],
+                            first_name = (string)reader["CFName"],
+                            last_name = (string)reader["CLName"]
+                        },
+                    });
+
+                ServiceModel model = services.First((modelA) => { return modelA.Consultant.staff_id == (int)reader["CStaffID"]; });
+
+
+                model.Juniors.Add(new StaffModel
+                {
+                    staff_id = (int)reader["StaffID"],
+                    first_name = (string)reader["FirstName"],
+                    last_name = (string)reader["LastName"]
+                });
+            }
+
+            connection.Close();
+
+            return services;
+            
         }
 
         public static void GetAllFromTable(string table)
@@ -28,9 +77,19 @@ namespace Hospital.Utilities
             //TODO: Ismael
         }
 
-        public static void ChangeJuniorsService()
+        public static void ChangeJuniorsService(Dictionary<int, int> consultant_junior_ids)
         {
-            //TODO: Dylan
+            connection.Open();
+
+            foreach (KeyValuePair<int, int> service in consultant_junior_ids)
+            {
+                // do something with entry.Value or entry.Key
+                SqlCommand cmd = new SqlCommand($"UPDATE Service SET LeaderID = {service.Value} WHERE MemberID = {service.Key}", connection);
+
+                cmd.ExecuteNonQuery();
+            }
+
+            connection.Close();
         }
 
         #region Matthew's Individual Part
