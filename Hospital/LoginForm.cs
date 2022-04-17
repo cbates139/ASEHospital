@@ -12,9 +12,11 @@ namespace Hospital
 {
     public partial class LoginForm : Form
     {
-        public LoginForm()
+        readonly LoginMenu mainMenu;
+        public LoginForm(LoginMenu mainMenu)
         {
             InitializeComponent();
+            this.mainMenu = mainMenu;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -24,20 +26,20 @@ namespace Hospital
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ConsultantForm Consultant = new ConsultantForm();
+            ConsultantForm Consultant = new ConsultantForm(mainMenu);
             Consultant.Show();
             Hide();
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            JuniorForm Junior = new JuniorForm();
+            JuniorForm Junior = new JuniorForm(mainMenu);
             Junior.Show();
             Hide();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            AdminForm Admin = new AdminForm();
+            AdminForm Admin = new AdminForm(mainMenu);
             Admin.Show();
             Hide();
         }

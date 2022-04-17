@@ -32,12 +32,12 @@ namespace Hospital
             //Send details to server to validate.
 
             //On successful response, store session data and go to main menu.
-            MainMenuAdmin m = new MainMenuAdmin(this);
+            LoginForm m = new LoginForm(this);
             
             //Hide this menu.
             Hide();
 
-            //Show admin menu.
+            //Show login routes menu. (Demo page).
             m.Show();
         }
     }
