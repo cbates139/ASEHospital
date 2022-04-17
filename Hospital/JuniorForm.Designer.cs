@@ -56,12 +56,13 @@ namespace Hospital
             // NavBar
             // 
             this.NavBar.BackColor = System.Drawing.SystemColors.GrayText;
+            this.NavBar.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.NavBar.Controls.Add(this.label1);
             this.NavBar.Controls.Add(this.pictureBox1);
             this.NavBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.NavBar.Location = new System.Drawing.Point(0, 0);
             this.NavBar.Name = "NavBar";
-            this.NavBar.Size = new System.Drawing.Size(1258, 150);
+            this.NavBar.Size = new System.Drawing.Size(1426, 150);
             this.NavBar.TabIndex = 4;
             // 
             // label1
@@ -80,7 +81,7 @@ namespace Hospital
             this.logout_button.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.logout_button.Location = new System.Drawing.Point(3, 3);
             this.logout_button.Name = "logout_button";
-            this.logout_button.Size = new System.Drawing.Size(294, 96);
+            this.logout_button.Size = new System.Drawing.Size(290, 144);
             this.logout_button.TabIndex = 7;
             this.logout_button.Text = "Logout";
             this.logout_button.UseVisualStyleBackColor = true;
@@ -90,9 +91,9 @@ namespace Hospital
             // 
             this.back_button.Dock = System.Windows.Forms.DockStyle.Fill;
             this.back_button.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.back_button.Location = new System.Drawing.Point(3, 207);
+            this.back_button.Location = new System.Drawing.Point(3, 303);
             this.back_button.Name = "back_button";
-            this.back_button.Size = new System.Drawing.Size(294, 96);
+            this.back_button.Size = new System.Drawing.Size(290, 144);
             this.back_button.TabIndex = 6;
             this.back_button.Text = "Back";
             this.back_button.UseVisualStyleBackColor = true;
@@ -102,9 +103,9 @@ namespace Hospital
             // 
             this.home_button.Dock = System.Windows.Forms.DockStyle.Fill;
             this.home_button.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.home_button.Location = new System.Drawing.Point(3, 105);
+            this.home_button.Location = new System.Drawing.Point(3, 153);
             this.home_button.Name = "home_button";
-            this.home_button.Size = new System.Drawing.Size(294, 96);
+            this.home_button.Size = new System.Drawing.Size(290, 144);
             this.home_button.TabIndex = 5;
             this.home_button.Text = "Home";
             this.home_button.UseVisualStyleBackColor = true;
@@ -112,11 +113,12 @@ namespace Hospital
             // 
             // panel1
             // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.tableLayoutPanel1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 150);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(300, 514);
+            this.panel1.Size = new System.Drawing.Size(300, 757);
             this.panel1.TabIndex = 5;
             // 
             // tableLayoutPanel1
@@ -137,16 +139,16 @@ namespace Hospital
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(300, 514);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(296, 753);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // patients_button
             // 
             this.patients_button.Dock = System.Windows.Forms.DockStyle.Fill;
             this.patients_button.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.patients_button.Location = new System.Drawing.Point(3, 309);
+            this.patients_button.Location = new System.Drawing.Point(3, 453);
             this.patients_button.Name = "patients_button";
-            this.patients_button.Size = new System.Drawing.Size(294, 96);
+            this.patients_button.Size = new System.Drawing.Size(290, 144);
             this.patients_button.TabIndex = 8;
             this.patients_button.Text = "Patients";
             this.patients_button.UseVisualStyleBackColor = true;
@@ -156,9 +158,9 @@ namespace Hospital
             // 
             this.viewService_button.Dock = System.Windows.Forms.DockStyle.Fill;
             this.viewService_button.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.viewService_button.Location = new System.Drawing.Point(3, 411);
+            this.viewService_button.Location = new System.Drawing.Point(3, 603);
             this.viewService_button.Name = "viewService_button";
-            this.viewService_button.Size = new System.Drawing.Size(294, 100);
+            this.viewService_button.Size = new System.Drawing.Size(290, 147);
             this.viewService_button.TabIndex = 9;
             this.viewService_button.Text = "View Service";
             this.viewService_button.UseVisualStyleBackColor = true;
@@ -166,21 +168,22 @@ namespace Hospital
             // 
             // panel2
             // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(300, 150);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(958, 514);
+            this.panel2.Size = new System.Drawing.Size(1126, 757);
             this.panel2.TabIndex = 6;
             // 
             // JuniorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1258, 664);
+            this.ClientSize = new System.Drawing.Size(1426, 907);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.NavBar);
-            this.MinimumSize = new System.Drawing.Size(1280, 720);
+            this.MinimumSize = new System.Drawing.Size(1448, 963);
             this.Name = "JuniorForm";
             this.Text = "Form2";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
