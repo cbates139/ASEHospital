@@ -64,7 +64,6 @@ namespace Hospital.User_Controls.Consultant
             this.label1.TabIndex = 3;
             this.label1.Text = "Consultant";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // listBox1
             // 

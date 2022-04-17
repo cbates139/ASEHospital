@@ -77,9 +77,19 @@ namespace Hospital.Utilities
             //TODO: Ismael
         }
 
-        public static void ChangeJuniorsService()
+        public static void ChangeJuniorsService(Dictionary<int, int> consultant_junior_ids)
         {
-            //TODO: Dylan
+            connection.Open();
+
+            foreach (KeyValuePair<int, int> service in consultant_junior_ids)
+            {
+                // do something with entry.Value or entry.Key
+                SqlCommand cmd = new SqlCommand($"UPDATE Service SET LeaderID = {service.Key} WHERE MemberID = {service.Value}", connection);
+
+                cmd.ExecuteNonQuery();
+            }
+
+            connection.Close();
         }
 
         #region Matthew's Individual Part

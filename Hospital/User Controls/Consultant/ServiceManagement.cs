@@ -22,29 +22,19 @@ namespace Hospital.User_Controls.Consultant
         private StaffModel dropDown1Prev = null;
         private StaffModel dropDown2Prev = null;
 
-        private List<string> list1Initial = new List<string>();
-        private List<string> list2Initial = new List<string>();
-        private List<ServiceModel> services = new List<ServiceModel>();
-        private void label1_Click(object sender, EventArgs e)
-        {
+        private readonly List<StaffModel> list1Initial = new List<StaffModel>();
+        private readonly List<StaffModel> list2Initial = new List<StaffModel>();
+        private readonly List<ServiceModel> services = new List<ServiceModel>();
 
+        public override void Refresh()
+        {
+            RefreshData();
+            base.Refresh();
         }
 
         private void ServiceManagement_Load(object sender, EventArgs e)
         {
-            services = DBConnection.GetConsultantServices();
-
-            //Load consultant dropdowns.
-            List<string> consultants = new List<string>();
-
-            services.ForEach((model) =>
-            {
-                consultants.Add(model.Consultant.first_name + " " + model.Consultant.last_name);
-            });
-
-            dropdownConsultant1.Items.AddRange(consultants.ToArray());
-            dropdownConsultant2.Items.AddRange(consultants.ToArray());
-
+            RefreshData();
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -106,7 +96,40 @@ namespace Hospital.User_Controls.Consultant
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            //TODO: Compare Diff and save.
+            //Changes lists and dictionary to submit for processing.
+            Dictionary<int, int> changes = new Dictionary<int, int>();
+            List<StaffModel> differences1 = new List<StaffModel>();
+            List<StaffModel> differences2 = new List<StaffModel>();
+
+            //Current staff IDs
+            int StaffID1 = ((StaffModel)listBox1.SelectedItem).staff_id;
+            int StaffID2 = ((StaffModel)listBox2.SelectedItem).staff_id;
+
+            //Get the added difference of list1 to initial1.
+            differences1.AddRange(list1Initial.Except(listBox1.Items.Cast<StaffModel>()));
+            differences1.AddRange(listBox1.Items.Cast<StaffModel>().Except(list1Initial));
+
+            differences1.ForEach((junior) =>
+            {
+                changes.Add( StaffID1 , junior.staff_id );
+            });
+
+            //Get the added difference of list2 to initial2.
+            differences2.AddRange(list2Initial.Except(listBox2.Items.Cast<StaffModel>()));
+            differences2.AddRange(listBox2.Items.Cast<StaffModel>().Except(list2Initial));
+
+            differences2.ForEach((junior) =>
+            {
+                changes.Add( StaffID2 , junior.staff_id);
+
+            });
+
+            //Call update function.
+            if (changes.Count > 0)
+                DBConnection.ChangeJuniorsService(changes);
+
+            //Reload page.
+            Refresh();
         }
 
         private void dropdownConsultant1_SelectedIndexChanged(object sender, EventArgs e)
@@ -146,8 +169,8 @@ namespace Hospital.User_Controls.Consultant
 
         private void checkSaveDiff()
         {
-            List<string> list1Current = listBox1.Items.Cast<String>().ToList();
-            List<string> list2Current = listBox2.Items.Cast<String>().ToList();
+            List<StaffModel> list1Current = listBox1.Items.Cast<StaffModel>().ToList();
+            List<StaffModel> list2Current = listBox2.Items.Cast<StaffModel>().ToList();
 
             //Compare initial and current respective lists.
             bool diff = (
@@ -165,6 +188,25 @@ namespace Hospital.User_Controls.Consultant
             //Enable/Disable Consultant selection.
             dropdownConsultant1.Enabled = !diff;
             dropdownConsultant2.Enabled = dropdownConsultant1.Enabled;
+        }
+
+        private void RefreshData()
+        {
+            services.Clear();
+            services.AddRange(DBConnection.GetConsultantServices());
+
+            //Load consultant dropdowns.
+            List<string> consultants = new List<string>();
+
+            services.ForEach((model) =>
+            {
+                consultants.Add(model.Consultant.first_name + " " + model.Consultant.last_name);
+            });
+
+            dropdownConsultant1.Items.AddRange(consultants.ToArray());
+            dropdownConsultant2.Items.AddRange(consultants.ToArray());
+
+            checkSaveDiff();
         }
 
     }
