@@ -30,31 +30,15 @@ namespace Hospital
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             //Send details to server to validate.
-            switch(textBoxStaffId.Text)
-            {
-                case "Consultant": ConsultantLogin(); break;
-                case "Admin": AdminLogin();  break;
-                case "Junior": JuniorLogin(); break;
-                case null: return;
-            }
-        }
-        private void ConsultantLogin()
-        {
-            ConsultantForm Consultant = new ConsultantForm(this);
-            Consultant.Show();
+
+            //On successful response, store session data and go to main menu.
+            LoginForm m = new LoginForm(this);
+            
+            //Hide this menu.
             Hide();
-        }
-        private void AdminLogin()
-        {
-            AdminForm Admin = new AdminForm(this);
-            Admin.Show();
-            Hide();
-        }
-        private void JuniorLogin()
-        {
-            Hide();
-            JuniorForm Junior = new JuniorForm(this);
-            Junior.Show();
+
+            //Show login routes menu. (Demo page).
+            m.Show();
         }
     }
 }
