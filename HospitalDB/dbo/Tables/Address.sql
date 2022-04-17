@@ -1,5 +1,7 @@
 ﻿-- Primary tables
 
+-- Primary tables
+
 CREATE TABLE [dbo].[Address] (
     AddressID INT  NOT NULL IDENTITY(1,1) PRIMARY KEY,
     AddressLine1 VARCHAR (MAX)  NOT NULL,

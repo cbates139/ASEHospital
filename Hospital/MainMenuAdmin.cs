@@ -27,5 +27,20 @@ namespace Hospital
             //Close this menu.
             Close();
         }
+
+        private void btnWardManagement_Click(object sender, EventArgs e)
+        {
+            WardManagement wm = new WardManagement(this);
+
+            wm.Show();
+
+            Close();
+
+        }
+
+        private void MainMenuAdmin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
