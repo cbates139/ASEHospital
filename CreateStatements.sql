@@ -120,6 +120,7 @@ CREATE TABLE [dbo].[RecordStaff] (
     CONSTRAINT FK_RS_RID FOREIGN KEY (RecordID) REFERENCES [dbo].[Record](RecordID)
 );
 
+
 -- Dylan's Dummy Data
 -- Yeah all staff live at the same address because I'm lazy.
 DELETE FROM Service WHERE LeaderID=LeaderID
@@ -217,3 +218,61 @@ VALUES
     ( 2,7 ),
     ( 3,8 ),
     ( 3,9 );
+    
+-- Matthew's Dummy Data
+INSERT INTO [dbo].Medication(
+   MedicationName
+)
+VALUES
+    (
+        'Morphine'
+    ),
+  (
+        'Oxycodone'
+    ),
+  (
+        'Buscopan'
+    ),
+  (
+        'Amitriptyline'
+    ),
+  (
+        'Tramadol'
+    ),
+  (
+        'Codeine'
+    ),
+(
+        'Paracetamol'
+    );
+INSERT INTO [dbo].Building(
+   AddressID,
+   BuildingName
+)
+VALUES
+    (
+        '1',
+        'Hospital ASE'
+    );
+INSERT INTO [dbo].Ward(
+   WardDescription,
+   Speciality,
+   BuildingID
+)
+VALUES
+    (
+        'diagnose, assess and treat patients with defects and diseases of the heart and the blood vessels'
+        'Cardiology'
+        '1'
+    );
+INSERT INTO [dbo].Room(
+   BedCount,
+   RoomDescription,
+   WardID
+)
+VALUES
+    (
+        '4',
+        'Special Equipment',
+        '1'
+    );
