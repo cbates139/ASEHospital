@@ -49,7 +49,7 @@ namespace Hospital
             // btnBack
             // 
             this.btnBack.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnBack.Location = new System.Drawing.Point(313, 519);
+            this.btnBack.Location = new System.Drawing.Point(193, 478);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(146, 46);
             this.btnBack.TabIndex = 25;
@@ -59,7 +59,7 @@ namespace Hospital
             // 
             // tbERelation
             // 
-            this.tbERelation.Location = new System.Drawing.Point(497, 447);
+            this.tbERelation.Location = new System.Drawing.Point(422, 400);
             this.tbERelation.Name = "tbERelation";
             this.tbERelation.Size = new System.Drawing.Size(200, 23);
             this.tbERelation.TabIndex = 23;
@@ -67,7 +67,7 @@ namespace Hospital
             // btnSubmit
             // 
             this.btnSubmit.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnSubmit.Location = new System.Drawing.Point(720, 519);
+            this.btnSubmit.Location = new System.Drawing.Point(584, 478);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(146, 46);
             this.btnSubmit.TabIndex = 24;
@@ -77,7 +77,7 @@ namespace Hospital
             // 
             // tbEMobileNumber
             // 
-            this.tbEMobileNumber.Location = new System.Drawing.Point(497, 380);
+            this.tbEMobileNumber.Location = new System.Drawing.Point(422, 346);
             this.tbEMobileNumber.Name = "tbEMobileNumber";
             this.tbEMobileNumber.Size = new System.Drawing.Size(200, 23);
             this.tbEMobileNumber.TabIndex = 22;
@@ -85,7 +85,7 @@ namespace Hospital
             // 
             // tbEName
             // 
-            this.tbEName.Location = new System.Drawing.Point(497, 247);
+            this.tbEName.Location = new System.Drawing.Point(422, 236);
             this.tbEName.Name = "tbEName";
             this.tbEName.Size = new System.Drawing.Size(200, 23);
             this.tbEName.TabIndex = 20;
@@ -94,7 +94,7 @@ namespace Hospital
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(313, 440);
+            this.label3.Location = new System.Drawing.Point(238, 393);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(101, 30);
             this.label3.TabIndex = 30;
@@ -104,7 +104,7 @@ namespace Hospital
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(313, 373);
+            this.label2.Location = new System.Drawing.Point(238, 337);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(178, 30);
             this.label2.TabIndex = 29;
@@ -114,7 +114,7 @@ namespace Hospital
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(313, 247);
+            this.label1.Location = new System.Drawing.Point(235, 229);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(134, 30);
             this.label1.TabIndex = 28;
@@ -122,7 +122,7 @@ namespace Hospital
             // 
             // tbELastName
             // 
-            this.tbELastName.Location = new System.Drawing.Point(497, 313);
+            this.tbELastName.Location = new System.Drawing.Point(422, 291);
             this.tbELastName.Name = "tbELastName";
             this.tbELastName.Size = new System.Drawing.Size(200, 23);
             this.tbELastName.TabIndex = 21;
@@ -131,7 +131,7 @@ namespace Hospital
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(313, 306);
+            this.label4.Location = new System.Drawing.Point(235, 282);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(131, 30);
             this.label4.TabIndex = 42;
@@ -160,7 +160,7 @@ namespace Hospital
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(373, 132);
+            this.label7.Location = new System.Drawing.Point(298, 149);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(324, 37);
             this.label7.TabIndex = 51;
@@ -170,7 +170,7 @@ namespace Hospital
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(254, 62);
+            this.label6.Location = new System.Drawing.Point(179, 79);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(578, 50);
             this.label6.TabIndex = 50;
@@ -180,7 +180,7 @@ namespace Hospital
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1070, 667);
+            this.ClientSize = new System.Drawing.Size(860, 613);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.linkLabel1);

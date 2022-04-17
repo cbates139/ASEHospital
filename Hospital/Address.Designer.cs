@@ -53,7 +53,7 @@ namespace Hospital
             // btnNext
             // 
             this.btnNext.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnNext.Location = new System.Drawing.Point(661, 511);
+            this.btnNext.Location = new System.Drawing.Point(585, 497);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(146, 46);
             this.btnNext.TabIndex = 18;
@@ -63,14 +63,14 @@ namespace Hospital
             // 
             // tbAddressLine2
             // 
-            this.tbAddressLine2.Location = new System.Drawing.Point(457, 260);
+            this.tbAddressLine2.Location = new System.Drawing.Point(381, 246);
             this.tbAddressLine2.Name = "tbAddressLine2";
             this.tbAddressLine2.Size = new System.Drawing.Size(200, 23);
             this.tbAddressLine2.TabIndex = 13;
             // 
             // tbAddressLine1
             // 
-            this.tbAddressLine1.Location = new System.Drawing.Point(457, 216);
+            this.tbAddressLine1.Location = new System.Drawing.Point(381, 202);
             this.tbAddressLine1.Name = "tbAddressLine1";
             this.tbAddressLine1.Size = new System.Drawing.Size(200, 23);
             this.tbAddressLine1.TabIndex = 12;
@@ -79,7 +79,7 @@ namespace Hospital
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(238, 390);
+            this.label5.Location = new System.Drawing.Point(162, 376);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(91, 30);
             this.label5.TabIndex = 15;
@@ -89,7 +89,7 @@ namespace Hospital
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(238, 345);
+            this.label4.Location = new System.Drawing.Point(162, 331);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(70, 30);
             this.label4.TabIndex = 14;
@@ -99,7 +99,7 @@ namespace Hospital
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(238, 299);
+            this.label3.Location = new System.Drawing.Point(162, 285);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(159, 30);
             this.label3.TabIndex = 13;
@@ -109,7 +109,7 @@ namespace Hospital
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(238, 253);
+            this.label2.Location = new System.Drawing.Point(162, 239);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(165, 30);
             this.label2.TabIndex = 12;
@@ -119,7 +119,7 @@ namespace Hospital
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(238, 209);
+            this.label1.Location = new System.Drawing.Point(162, 195);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(180, 30);
             this.label1.TabIndex = 11;
@@ -129,7 +129,7 @@ namespace Hospital
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(238, 434);
+            this.label6.Location = new System.Drawing.Point(162, 420);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(121, 30);
             this.label6.TabIndex = 22;
@@ -137,28 +137,28 @@ namespace Hospital
             // 
             // tbAddressLine3
             // 
-            this.tbAddressLine3.Location = new System.Drawing.Point(457, 306);
+            this.tbAddressLine3.Location = new System.Drawing.Point(381, 292);
             this.tbAddressLine3.Name = "tbAddressLine3";
             this.tbAddressLine3.Size = new System.Drawing.Size(200, 23);
             this.tbAddressLine3.TabIndex = 14;
             // 
             // tbCity
             // 
-            this.tbCity.Location = new System.Drawing.Point(457, 352);
+            this.tbCity.Location = new System.Drawing.Point(381, 338);
             this.tbCity.Name = "tbCity";
             this.tbCity.Size = new System.Drawing.Size(200, 23);
             this.tbCity.TabIndex = 15;
             // 
             // tbRegion
             // 
-            this.tbRegion.Location = new System.Drawing.Point(457, 397);
+            this.tbRegion.Location = new System.Drawing.Point(381, 383);
             this.tbRegion.Name = "tbRegion";
             this.tbRegion.Size = new System.Drawing.Size(200, 23);
             this.tbRegion.TabIndex = 16;
             // 
             // tbPostcode
             // 
-            this.tbPostcode.Location = new System.Drawing.Point(457, 441);
+            this.tbPostcode.Location = new System.Drawing.Point(381, 427);
             this.tbPostcode.Name = "tbPostcode";
             this.tbPostcode.Size = new System.Drawing.Size(200, 23);
             this.tbPostcode.TabIndex = 17;
@@ -166,7 +166,7 @@ namespace Hospital
             // btnBack
             // 
             this.btnBack.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnBack.Location = new System.Drawing.Point(238, 511);
+            this.btnBack.Location = new System.Drawing.Point(162, 497);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(146, 46);
             this.btnBack.TabIndex = 19;
@@ -197,7 +197,7 @@ namespace Hospital
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(269, 112);
+            this.label7.Location = new System.Drawing.Point(193, 98);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(467, 37);
             this.label7.TabIndex = 51;
@@ -207,7 +207,7 @@ namespace Hospital
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(423, 62);
+            this.label8.Location = new System.Drawing.Point(347, 48);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(161, 50);
             this.label8.TabIndex = 50;
@@ -217,7 +217,7 @@ namespace Hospital
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(989, 644);
+            this.ClientSize = new System.Drawing.Size(860, 613);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.linkLabel1);

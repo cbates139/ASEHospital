@@ -59,7 +59,10 @@ namespace Hospital
                     string format = "yyyy-MM-dd HH:mm:ss";
                     SqlCommand cmd2 = new SqlCommand("INSERT INTO Pii(FirstName,LastName,Dob,MobileNo,Email,AddressID,ContactID)values('" + PiiM.FirstName + "','" + PiiM.LastName + "','" + PiiM.Dob.ToString(format) + "','" + PiiM.MobileNo + "','" + PiiM.Email + "','" + AddressId + "','" + EmergencyContactId + "')", con);
                     cmd2.ExecuteNonQuery();
-                    MessageBox.Show("Patient Added");
+                    MessageBox.Show("   Patient Added   ");
+                    RegisterPation RP = new RegisterPation();
+                    RP.ShowDialog();
+                    this.Close();
                 }
                 catch (Exception ex)
                 {
@@ -106,6 +109,5 @@ namespace Hospital
             this.ECM = ecm;
             this.ShowDialog();
         }
-
     }
 }
