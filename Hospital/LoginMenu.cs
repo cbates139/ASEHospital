@@ -32,7 +32,7 @@ namespace Hospital
             //Send details to server to validate.
 
             //On successful response, store session data and go to main menu.
-            LoginForm m = new LoginForm();
+            LoginForm m = new LoginForm(this);
             
             //Hide this menu.
             Hide();
