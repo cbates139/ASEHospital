@@ -172,7 +172,7 @@ namespace Hospital
             this.panel2.Size = new System.Drawing.Size(958, 514);
             this.panel2.TabIndex = 6;
             // 
-            // Form3
+            // JuniorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -180,9 +180,8 @@ namespace Hospital
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.NavBar);
-            this.MaximumSize = new System.Drawing.Size(1280, 720);
             this.MinimumSize = new System.Drawing.Size(1280, 720);
-            this.Name = "Form3";
+            this.Name = "JuniorForm";
             this.Text = "Form2";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.NavBar.ResumeLayout(false);
