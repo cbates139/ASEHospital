@@ -63,8 +63,7 @@ namespace Hospital.User_Controls.Consultant
 
         private void buttonToRight_Click(object sender, EventArgs e)
         {
-            int index = listBox1.FindString(selectedJunior.ToString());
-            listBox1.Items.Remove(index);
+            listBox1.Items.Remove(selectedJunior);
             listBox2.Items.Add(selectedJunior);
 
             checkSaveDiff();
@@ -72,9 +71,8 @@ namespace Hospital.User_Controls.Consultant
 
         private void buttonToLeft_Click(object sender, EventArgs e)
         {
-            int index = listBox1.FindString(selectedJunior.ToString());
-            listBox1.Items.Remove(index);
-            listBox2.Items.Add(selectedJunior);
+            listBox1.Items.Add(selectedJunior);
+            listBox2.Items.Remove(selectedJunior);
 
             checkSaveDiff();
             
@@ -82,14 +80,26 @@ namespace Hospital.User_Controls.Consultant
         private void buttonReset_Click(object sender, EventArgs e)
         {
             //Reset Box 1
+            list1Initial.Clear();
             listBox1.Items.Clear();
-            listBox1.Items.AddRange(list1Initial.ToArray());
             listBox1.SelectedIndex = -1;
 
             //Reset Box 2
+            list2Initial.Clear();
             listBox2.Items.Clear();
-            listBox2.Items.AddRange(list2Initial.ToArray());
             listBox2.SelectedIndex = -1;
+
+            //Refresh dropdowns.
+            dropdownConsultant1.Items.Add(dropdownConsultant2.SelectedItem);
+            dropdownConsultant2.Items.Add(dropdownConsultant1.SelectedItem);
+            //Deselect in dropdowns
+            dropdownConsultant1.SelectedIndex = -1;
+            dropdownConsultant2.SelectedIndex = -1;
+
+            //Reset move buttons
+            buttonToLeft.Enabled = false;
+            buttonToRight.Enabled = false;
+
             //Reset Buttons
             checkSaveDiff();
         }
@@ -102,25 +112,25 @@ namespace Hospital.User_Controls.Consultant
             List<StaffModel> differences2 = new List<StaffModel>();
 
             //Current staff IDs
-            int StaffID1 = ((StaffModel)listBox1.SelectedItem).staff_id;
-            int StaffID2 = ((StaffModel)listBox2.SelectedItem).staff_id;
+            int StaffID1 = ((StaffModel)dropdownConsultant1.SelectedItem).staff_id;
+            int StaffID2 = ((StaffModel)dropdownConsultant2.SelectedItem).staff_id;
 
             //Get the added difference of list1 to initial1.
-            differences1.AddRange(list1Initial.Except(listBox1.Items.Cast<StaffModel>()));
+            //differences1.AddRange(list1Initial.Except(listBox1.Items.Cast<StaffModel>()));
             differences1.AddRange(listBox1.Items.Cast<StaffModel>().Except(list1Initial));
 
             differences1.ForEach((junior) =>
             {
-                changes.Add( StaffID1 , junior.staff_id );
+                changes.Add(junior.staff_id, StaffID1);
             });
 
             //Get the added difference of list2 to initial2.
-            differences2.AddRange(list2Initial.Except(listBox2.Items.Cast<StaffModel>()));
+            //differences2.AddRange(list2Initial.Except(listBox2.Items.Cast<StaffModel>()));
             differences2.AddRange(listBox2.Items.Cast<StaffModel>().Except(list2Initial));
 
             differences2.ForEach((junior) =>
             {
-                changes.Add( StaffID2 , junior.staff_id);
+                changes.Add(junior.staff_id, StaffID2);
 
             });
 
@@ -134,14 +144,20 @@ namespace Hospital.User_Controls.Consultant
 
         private void dropdownConsultant1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (dropdownConsultant1.SelectedIndex == -1) { buttonToRight.Enabled = false; return; }
             //Add Juniors to list 1.
             listBox1.Items.Clear();
             ServiceModel sm = services.Find((service) => service.Consultant == (StaffModel)dropdownConsultant1.SelectedItem);
             listBox1.Items.AddRange(sm.Juniors.ToArray());
+            
+            //Set initial list1 snapshot.
+            list1Initial.AddRange(sm.Juniors);
+
 
             //Hide current consultant1 in dropdown 2.
             dropdownConsultant2.Items.Remove(sm.Consultant);
             //Show previous consultant1 in dropdown 2.
+            if (dropDown1Prev != null)
             dropdownConsultant2.Items.Add(dropDown1Prev);
         }
         private void dropdownConsultant1_DropDown(object sender, EventArgs e)
@@ -150,15 +166,21 @@ namespace Hospital.User_Controls.Consultant
         }
         private void dropdownConsultant2_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (dropdownConsultant2.SelectedIndex == -1) { buttonToLeft.Enabled = false; return; }
+
             //Add Juniors to list 2.
             listBox2.Items.Clear();
             ServiceModel sm = services.Find((service) => service.Consultant == (StaffModel)dropdownConsultant2.SelectedItem);
             listBox2.Items.AddRange(sm.Juniors.ToArray());
 
+            //Set initial list2 snapshot.
+            list2Initial.AddRange(sm.Juniors);
+
             //Hide current consultant2 in dropdown 1.
             dropdownConsultant1.Items.Remove(sm.Consultant);
             //Show previous consultant2 in dropdown 1.
-            dropdownConsultant1.Items.Add(dropDown2Prev);
+            if (dropDown2Prev != null)
+                dropdownConsultant1.Items.Add(dropDown2Prev);
 
         }
 
@@ -196,15 +218,26 @@ namespace Hospital.User_Controls.Consultant
             services.AddRange(DBConnection.GetConsultantServices());
 
             //Load consultant dropdowns.
-            List<string> consultants = new List<string>();
+            List<StaffModel> consultants = new List<StaffModel>();
 
             services.ForEach((model) =>
             {
-                consultants.Add(model.Consultant.first_name + " " + model.Consultant.last_name);
+                consultants.Add(model.Consultant);
             });
 
+            //Reset Dropdowns
+            dropdownConsultant1.SelectedIndex = -1;
+            dropdownConsultant2.SelectedIndex = -1;
+            dropdownConsultant1.Items.Clear();
+            dropdownConsultant2.Items.Clear();
             dropdownConsultant1.Items.AddRange(consultants.ToArray());
             dropdownConsultant2.Items.AddRange(consultants.ToArray());
+            
+            //Clear Initial Values
+            list1Initial.Clear();
+            list2Initial.Clear();
+            listBox1.Items.Clear();
+            listBox2.Items.Clear();
 
             checkSaveDiff();
         }

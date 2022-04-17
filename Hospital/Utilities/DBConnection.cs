@@ -24,10 +24,10 @@ namespace Hospital.Utilities
         {
             connection.Open();
             SqlCommand cmd = new SqlCommand(
-                $"SELECT c.FirstName, c.LastName, c.StaffID, " +
+                $"SELECT c.FirstName as CFName, c.LastName as CLName, c.StaffID as CStaffID, " +
                 $"j.FirstName, j.LastName, j.StaffID FROM Service " +
-                $"RIGHT JOIN Staff AS j ON j.StaffID = MemberID " +
-                $"RIGHT JOIN Staff AS c ON c.StaffID = LeaderID " +
+                $"JOIN Staff AS j ON j.StaffID = MemberID " +
+                $"JOIN Staff AS c ON c.StaffID = LeaderID " +
                 $"ORDER BY LeaderID ",
                 connection
                 );
@@ -39,25 +39,25 @@ namespace Hospital.Utilities
             while (reader.Read())
             {
                 //If consultant isn't in the list...
-                if (!services.Exists((model) => { return model.Consultant.staff_id == (int)reader["c.StaffID"]; }))
+                if (!services.Exists((model) => { return model.Consultant.staff_id == (int)reader["CStaffID"]; }))
                     services.Add(new ServiceModel
                     {
                         Consultant = new StaffModel
                         {
-                            staff_id = (int)reader["c.StaffID"],
-                            first_name = (string)reader["c.FirstName"],
-                            last_name = (string)reader["c.LastName"]
+                            staff_id = (int)reader["CStaffID"],
+                            first_name = (string)reader["CFName"],
+                            last_name = (string)reader["CLName"]
                         },
                     });
 
-                ServiceModel model = services.First((modelA) => { return modelA.Consultant.staff_id == (int)reader["c.StaffID"]; });
+                ServiceModel model = services.First((modelA) => { return modelA.Consultant.staff_id == (int)reader["CStaffID"]; });
 
 
                 model.Juniors.Add(new StaffModel
                 {
-                    staff_id = (int)reader["j.StaffID"],
-                    first_name = (string)reader["j.FirstName"],
-                    last_name = (string)reader["j.LastName"]
+                    staff_id = (int)reader["StaffID"],
+                    first_name = (string)reader["FirstName"],
+                    last_name = (string)reader["LastName"]
                 });
             }
 
@@ -84,7 +84,7 @@ namespace Hospital.Utilities
             foreach (KeyValuePair<int, int> service in consultant_junior_ids)
             {
                 // do something with entry.Value or entry.Key
-                SqlCommand cmd = new SqlCommand($"UPDATE Service SET LeaderID = {service.Key} WHERE MemberID = {service.Value}", connection);
+                SqlCommand cmd = new SqlCommand($"UPDATE Service SET LeaderID = {service.Value} WHERE MemberID = {service.Key}", connection);
 
                 cmd.ExecuteNonQuery();
             }
