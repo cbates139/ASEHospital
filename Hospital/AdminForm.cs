@@ -11,16 +11,19 @@ namespace Hospital
 {
     public partial class AdminForm : Form
     {
+        readonly LoginMenu MainMenu;
+
         NavigationControl navigationControl;
         NavigationButtons navigationButtons;
 
         Color btnDefaultColour = Color.FromKnownColor(KnownColor.ControlLight);
         Color btnSelectedColour = Color.FromKnownColor(KnownColor.ControlDark);
-        public AdminForm()
+        public AdminForm(LoginMenu menuInstance)
         {
             InitializeComponent();
             InitialiseNavigationControl();
             InitialiseNavigationButtons();
+            MainMenu = menuInstance;
         }
 
         private void InitialiseNavigationControl()
@@ -42,8 +45,9 @@ namespace Hospital
 
         private void logout_button_Click(object sender, EventArgs e)
         {
-            //TO-DO:
-            //navigationControl.Display(0);
+            Hide();
+            MainMenu.Show();
+            Close();
         }
 
         private void home_button_Click(object sender, EventArgs e)
