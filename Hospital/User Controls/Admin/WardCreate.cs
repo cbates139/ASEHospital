@@ -32,20 +32,22 @@ namespace Hospital.User_Controls.Admin
             
             buildings.AddRange(DBConnection.GetBuildings());
 
-           
+            txtWardDescription.Clear();
+            txtWardSpecialty.Clear();
             ddBuilding.SelectedIndex = -1;
             ddBuilding.Items.Clear();
             ddBuilding.Items.AddRange(buildings.ToArray());
-            btnSave.Enabled = false;
 
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             bm = buildings.Find((building) => building == (BuildingModel)ddBuilding.SelectedItem);
+            System.Diagnostics.Debug.WriteLine(bm.BuildingID);
+            string test = bm.BuildingID.ToString();
 
             DBConnection.AddWard(txtWardDescription.Text, txtWardSpecialty.Text, bm.BuildingID);
-            System.Windows.Forms.MessageBox.Show("Ward added successfully ");
+            
             RefreshData();
 
         }

@@ -11,8 +11,9 @@ Post-Deployment Script Template
 */
 -- Dylan's Dummy Data
 -- Yeah all staff live at the same address because I'm lazy.
-DELETE FROM [dbo].[Service];
+
 DELETE FROM [dbo].[Staff];
+DELETE FROM [dbo].[Service];
 
 DELETE FROM [dbo].[Pii];
 DELETE FROM [dbo].[EmergencyContact];
