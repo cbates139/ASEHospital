@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Address.cs~RFa4bc747.TMP" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="DB Scripts\" />
   </ItemGroup>
 
