@@ -33,7 +33,6 @@ namespace Hospital.User_Controls.Admin
             this.btnUpdatePatientInfo = new System.Windows.Forms.Button();
             this.btnDeletePatient = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.imageLogo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.imageLogo)).BeginInit();
             this.SuspendLayout();
@@ -79,16 +78,6 @@ namespace Hospital.User_Controls.Admin
             this.label8.TabIndex = 51;
             this.label8.Text = "Patient Managment";
             // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(109, 3);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(45, 15);
-            this.linkLabel1.TabIndex = 53;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Logout";
-            // 
             // imageLogo
             // 
             this.imageLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
@@ -102,7 +91,6 @@ namespace Hospital.User_Controls.Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.imageLogo);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.btnDeletePatient);
@@ -122,7 +110,6 @@ namespace Hospital.User_Controls.Admin
         private System.Windows.Forms.Button btnUpdatePatientInfo;
         private System.Windows.Forms.Button btnDeletePatient;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.PictureBox imageLogo;
     }
 }
