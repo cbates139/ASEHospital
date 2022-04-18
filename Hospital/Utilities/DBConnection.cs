@@ -128,33 +128,126 @@ namespace Hospital.Utilities
         //TODO: Callum
         public static void AddWard(string WardDescription, string Specialty, int BuildingID)
         {
-            connection.Open();
 
-            SqlCommand cmd = new SqlCommand($"INSERT INTO Ward Values ('{WardDescription}', '{Specialty}', '{BuildingID}') ", connection);
+            // Prepare a proper parameterized query 
+            string sql = "INSERT INTO WARD ([WardDescription], [Specialty], [BuildingID]) values(@desc,@spec,@bid)";
 
-            cmd.ExecuteNonQuery();
+            // Create the connection (and be sure to dispose it at the end)
+            using (SqlConnection cnn = new SqlConnection(ServerURL))
+            {
+                try
+                {
+                    // Open the connection to the database. 
+                    // This is the first critical step in the process.
+                    // If we cannot reach the db then we have connectivity problems
+                    cnn.Open();
 
-            connection.Close();
+                    // Prepare the command to be executed on the db
+                    using (SqlCommand cmd = new SqlCommand(sql, cnn))
+                    {
+                        // Create and set the parameters values 
+                        cmd.Parameters.Add("@desc", System.Data.SqlDbType.VarChar).Value = WardDescription;
+                        cmd.Parameters.Add("@spec", System.Data.SqlDbType.VarChar).Value = Specialty;
+                        cmd.Parameters.Add("@bid", System.Data.SqlDbType.Int).Value = BuildingID;
+                        // Let's ask the db to execute the query
+                        int rowsAdded = cmd.ExecuteNonQuery();
+                        if (rowsAdded > 0)
+                            System.Windows.Forms.MessageBox.Show("Creation Successful");
+                        else
+                            // Well this should never really happen
+                            System.Windows.Forms.MessageBox.Show("Creation Fail");
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // We should log the error somewhere, 
+                    // for this example let's just show a message
+                    System.Windows.Forms.MessageBox.Show("ERROR:" + ex.Message);
+                }
+            }
         }
         public static void RemoveWard(WardModel ward)
         {
-            connection.Open();
+            // Prepare a proper parameterized query 
+            string sql = "DELETE FROM Ward WHERE WardID = @wardID";
 
-            SqlCommand cmd = new SqlCommand($"DELETE FROM Ward WHERE WardID = {ward.WardID}", connection);
+            // Create the connection (and be sure to dispose it at the end)
+            using (SqlConnection cnn = new SqlConnection(ServerURL))
+            {
+                try
+                {
+                    // Open the connection to the database. 
+                    // This is the first critical step in the process.
+                    // If we cannot reach the db then we have connectivity problems
+                    cnn.Open();
 
-            cmd.ExecuteNonQuery();
+                    // Prepare the command to be executed on the db
+                    using (SqlCommand cmd = new SqlCommand(sql, cnn))
+                    {
+                        // Create and set the parameters values 
+                        cmd.Parameters.Add("@wardID", System.Data.SqlDbType.Int).Value = ward.WardID;
+                        // Let's ask the db to execute the query
+                        int rowsAdded = cmd.ExecuteNonQuery();
+                        if (rowsAdded > 0)
+                            System.Windows.Forms.MessageBox.Show("Delete Successful");
+                        else
+                            // Well this should never really happen
+                            System.Windows.Forms.MessageBox.Show("Delete Fail");
 
-            connection.Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // We should log the error somewhere, 
+                    // for this example let's just show a message
+                    System.Windows.Forms.MessageBox.Show("ERROR:" + ex.Message);
+                }
+            }
         }
-        public static void UpdateWard(WardModel ward)
+        public static void UpdateWard(string wardDescription, string wardSpecialty, int buildingID, int wardID)
         {
-            connection.Open();
 
-            SqlCommand cmd = new SqlCommand($"UPDATE Ward SET WardDescription = '{ward.WardDescription}', Specialty = '{ward.Specialty}', BuildingID = {ward.BuildingID} WHERE WardID = {ward.WardID}", connection);
+            // Prepare a proper parameterized query 
+            string sql = "UPDATE Ward SET WardDescription = @wardDescription, Specialty = @wardSpecialty, BuildingID = @buildingID WHERE WardID = @wardID";
 
-            cmd.ExecuteNonQuery();
+            // Create the connection (and be sure to dispose it at the end)
+            using (SqlConnection cnn = new SqlConnection(ServerURL))
+            {
+                try
+                {
+                    // Open the connection to the database. 
+                    // This is the first critical step in the process.
+                    // If we cannot reach the db then we have connectivity problems
+                    cnn.Open();
 
-            connection.Close();
+                    // Prepare the command to be executed on the db
+                    using (SqlCommand cmd = new SqlCommand(sql, cnn))
+                    {
+                        // Create and set the parameters values 
+                        cmd.Parameters.Add("@wardID", System.Data.SqlDbType.Int).Value = wardID;
+                        cmd.Parameters.Add("@wardDescription", System.Data.SqlDbType.VarChar).Value = wardDescription;
+                        cmd.Parameters.Add("@wardSpecialty", System.Data.SqlDbType.VarChar).Value = wardSpecialty;
+                        cmd.Parameters.Add("@buildingID", System.Data.SqlDbType.Int).Value = buildingID;
+                        // Let's ask the db to execute the query
+                        int rowsAdded = cmd.ExecuteNonQuery();
+                        if (rowsAdded > 0)
+                            System.Windows.Forms.MessageBox.Show("Update Successful");
+                        else
+                            // Well this should never really happen
+                            System.Windows.Forms.MessageBox.Show("Update Fail");
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // We should log the error somewhere, 
+                    // for this example let's just show a message
+                    System.Windows.Forms.MessageBox.Show("ERROR:" + ex.Message);
+                }
+            }
+           
+            
         }
         public static List<BuildingModel> GetBuildings()
         {

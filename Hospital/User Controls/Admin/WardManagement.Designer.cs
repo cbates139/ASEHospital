@@ -109,8 +109,7 @@ namespace Hospital.User_Controls.Admin
             this.ddBuilding.Location = new System.Drawing.Point(495, 187);
             this.ddBuilding.Name = "ddBuilding";
             this.ddBuilding.Size = new System.Drawing.Size(151, 28);
-            this.ddBuilding.TabIndex = 7;
-            // 
+            this.ddBuilding.TabIndex = 7; // 
             // label5
             // 
             this.label5.AutoSize = true;
