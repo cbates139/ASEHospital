@@ -24,4 +24,19 @@ namespace Hospital.Models
         public string Region { get; set; }
         public string PostalCode { get; set; }
     }
+
+    public class RecordModel
+    {
+        public int StaffID { get; set; }
+        public int PatientID { get; set; }
+        public int RoomID { get; set; }
+        public string ReasonForVisit { get; set; }
+        public RecordModel(int StaffID, int PatientID, int RoomID, string ReasonForVisit)
+        {
+            this.StaffID = StaffID;
+            this.PatientID = PatientID;
+            this.RoomID = RoomID;
+            this.ReasonForVisit = ReasonForVisit;
+        }
+    }
 }
