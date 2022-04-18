@@ -60,7 +60,7 @@ namespace Hospital.User_Controls.Admin
         {
             DBConnection.RemoveWard(wm);
             System.Windows.Forms.MessageBox.Show("Ward deleted successfully");
-            RefreshData();
+            
         }
 
         private void btnSave_Click(object sender, EventArgs e)
