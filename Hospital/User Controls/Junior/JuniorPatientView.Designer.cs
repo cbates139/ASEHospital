@@ -39,9 +39,9 @@ namespace Hospital.User_Controls
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
+            this.medicationList_listbox = new System.Windows.Forms.ListBox();
             this.panel14 = new System.Windows.Forms.Panel();
             this.medication_label = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.treatmentList_listbox = new System.Windows.Forms.ListBox();
@@ -66,7 +66,6 @@ namespace Hospital.User_Controls
             this.panel15.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel14.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel8.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel11.SuspendLayout();
@@ -188,14 +187,23 @@ namespace Hospital.User_Controls
             // 
             // panel13
             // 
+            this.panel13.Controls.Add(this.medicationList_listbox);
             this.panel13.Controls.Add(this.panel14);
-            this.panel13.Controls.Add(this.dataGridView1);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel13.Location = new System.Drawing.Point(268, 0);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(300, 382);
             this.panel13.TabIndex = 9;
-            this.panel13.Paint += new System.Windows.Forms.PaintEventHandler(this.panel13_Paint);
+            // 
+            // medicationList_listbox
+            // 
+            this.medicationList_listbox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.medicationList_listbox.FormattingEnabled = true;
+            this.medicationList_listbox.ItemHeight = 25;
+            this.medicationList_listbox.Location = new System.Drawing.Point(0, 46);
+            this.medicationList_listbox.Name = "medicationList_listbox";
+            this.medicationList_listbox.Size = new System.Drawing.Size(300, 336);
+            this.medicationList_listbox.TabIndex = 1;
             // 
             // panel14
             // 
@@ -215,17 +223,6 @@ namespace Hospital.User_Controls
             this.medication_label.Size = new System.Drawing.Size(143, 32);
             this.medication_label.TabIndex = 4;
             this.medication_label.Text = "Medication";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 33;
-            this.dataGridView1.Size = new System.Drawing.Size(300, 382);
-            this.dataGridView1.TabIndex = 5;
             // 
             // panel8
             // 
@@ -363,7 +360,6 @@ namespace Hospital.User_Controls
             this.patientDetail_panel.Name = "patientDetail_panel";
             this.patientDetail_panel.Size = new System.Drawing.Size(542, 84);
             this.patientDetail_panel.TabIndex = 3;
-            this.patientDetail_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
             // patientName_label
             // 
@@ -423,7 +419,6 @@ namespace Hospital.User_Controls
             this.panel13.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel8.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
@@ -455,7 +450,6 @@ namespace Hospital.User_Controls
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label selectedPatient_label;
         private System.Windows.Forms.Label patientName_label;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label medication_label;
         private System.Windows.Forms.Label reasonForVisit_label;
         private System.Windows.Forms.Label treatmentType_label;
@@ -472,5 +466,6 @@ namespace Hospital.User_Controls
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.ListBox medicationList_listbox;
     }
 }
