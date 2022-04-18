@@ -18,6 +18,7 @@ namespace Hospital.User_Controls.Admin
         }
 
         private WardModel wm = null;
+        private BuildingModel bm = null;
         private readonly List<WardModel> wards = new List<WardModel>();
         private readonly List<BuildingModel> buildings = new List<BuildingModel>();
         private void WardManagement_Load(object sender, EventArgs e)
@@ -47,6 +48,7 @@ namespace Hospital.User_Controls.Admin
         {
             wm = wards.Find((ward) => ward == (WardModel)ddWard.SelectedItem);
             txtWardID.Text = wm.WardID.ToString();
+            
             txtWardDescription.Text = wm.WardDescription;
             ddBuilding.SelectedItem = wm.Building;
             txtWardSpecialty.Text = wm.Specialty;
@@ -63,9 +65,11 @@ namespace Hospital.User_Controls.Admin
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            DBConnection.UpdateWard(wm);
+            bm = buildings.Find((building) => building == (BuildingModel)ddBuilding.SelectedItem);
+            string wardDescription = txtWardDescription.Text, wardSpecialty = txtWardSpecialty.Text;
+            DBConnection.UpdateWard(wardDescription, wardSpecialty, bm.BuildingID, wm.WardID);
             System.Windows.Forms.MessageBox.Show("Ward updated successfully");
-            RefreshData();
+            
         }
     }
 }
