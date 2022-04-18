@@ -52,6 +52,7 @@ namespace Hospital.User_Controls
             this.editWard_button.TabIndex = 8;
             this.editWard_button.Text = "Edit / Remove Ward";
             this.editWard_button.UseVisualStyleBackColor = true;
+            this.editWard_button.Click += new System.EventHandler(this.editWard_button_Click_1);
             // 
             // createWard_button
             // 

@@ -21,19 +21,16 @@ namespace Hospital.User_Controls
             navigationControl = new NavigationControl(pages, panel1); //Create instance of navigation control class
         }
 
-        private void editWard_button_Click(object sender, EventArgs e)
-        {
-            navigationControl.Display(0); //Display WardManagement
-            
-
-        }
+      
 
         private void createWard_button_Click(object sender, EventArgs e)
         {
             navigationControl.Display(1); //Display WardManagement
         }
 
-        
-
+        private void editWard_button_Click_1(object sender, EventArgs e)
+        {
+            navigationControl.Display(0); //Display WardManagement
+        }
     }
 }

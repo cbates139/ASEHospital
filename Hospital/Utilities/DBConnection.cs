@@ -195,7 +195,7 @@ namespace Hospital.Utilities
                        
                     });
 
-                WardModel model = wards.First((modelA) => { return modelA.WardID == (int)reader["BID"]; });
+                WardModel model = wards.First((modelA) => { return modelA.WardID == (int)reader["WID"]; });
 
 
 
