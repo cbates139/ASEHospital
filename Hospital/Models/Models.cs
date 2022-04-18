@@ -25,6 +25,30 @@ namespace Hospital.Models
         public string PostalCode { get; set; }
     }
 
+    public class ServiceModel
+    { 
+        public StaffModel Consultant { get; set; }
+        public List<StaffModel> Juniors { get; set; } = new List<StaffModel>();
+        
+        override public string ToString()
+        {
+            return Consultant.first_name + " " + Consultant.last_name;
+        }
+    }
+    public class StaffModel
+    {
+        public int staff_id { get; set; }
+        public int? address_id { get; set; }
+        public string first_name { get; set; }
+        public string last_name { get; set; }
+
+        override public string ToString()
+        {
+            return first_name + " " + last_name;
+        }
+    }
+
+
     public class RecordModel
     {
         public int StaffID { get; set; }
