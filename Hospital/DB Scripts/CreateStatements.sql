@@ -29,15 +29,21 @@ CREATE TABLE [dbo].[EmergencyContact] (
 
 -- Secondary Tables
 CREATE TABLE [dbo].[Pii] (
-    PatientID INT  NOT NULL IDENTITY(1,1) PRIMARY KEY,
+    PatientID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
     FirstName VARCHAR (20)  NOT NULL,
     LastName VARCHAR (20) NOT NULL,
     Dob DATETIME NOT NULL,
     MobileNo VARCHAR(50) NULL,
     Email VARCHAR (20) NULL,
     CONSTRAINT P_Email_UNQ UNIQUE (Email),
-    CONSTRAINT P_Mob_UNQ UNIQUE (MobileNo)
+    CONSTRAINT P_Mob_UNQ UNIQUE (MobileNo),
+    AddressID INT NOT NULL,
+    ContactID INT NOT NULL,
+    CONSTRAINT FK_Pii_Address FOREIGN KEY (AddressID) REFERENCES [dbo].[Address](AddressID),
+    CONSTRAINT FK_Pii_EC FOREIGN KEY (ContactID) REFERENCES [dbo].[EmergencyContact](ContactID)
+
 );
+
 CREATE TABLE [dbo].[Staff] (
     StaffID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
     FirstName VARCHAR (20)  NOT NULL,
@@ -112,14 +118,12 @@ CREATE TABLE [dbo].[Service] (
     CONSTRAINT FK_Service_LID FOREIGN KEY (LeaderID) REFERENCES [dbo].[Staff](StaffID),
     CONSTRAINT FK_Service_MID FOREIGN KEY (MemberID) REFERENCES [dbo].[Staff](StaffID)
 );
-
 CREATE TABLE [dbo].[RecordStaff] (
     StaffID INT NOT NULL,
     RecordID INT NOT NULL,
     CONSTRAINT FK_RS_SID FOREIGN KEY (StaffID) REFERENCES [dbo].[Staff](StaffID),
     CONSTRAINT FK_RS_RID FOREIGN KEY (RecordID) REFERENCES [dbo].[Record](RecordID)
 );
-
 
 -- Dylan's Dummy Data
 -- Yeah all staff live at the same address because I'm lazy.
