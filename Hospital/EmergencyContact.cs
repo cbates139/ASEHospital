@@ -61,8 +61,8 @@ namespace Hospital
                     cmd2.ExecuteNonQuery();
                     MessageBox.Show("   Patient Added   ");
                     RegisterPation RP = new RegisterPation();
+                    this.Hide();
                     RP.ShowDialog();
-                    this.Close();
                 }
                 catch (Exception ex)
                 {
