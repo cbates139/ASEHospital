@@ -48,4 +48,36 @@ namespace Hospital.Models
         }
     }
 
+    public class BuildingModel
+    {
+        public int BuildingID { get; set; }
+
+        public int? AddressID { get; set; }
+
+        public string BuildingName { get; set; }
+
+        public override string ToString()
+        {
+            return BuildingName;
+        }
+    }
+    public class WardModel
+    {
+
+        public BuildingModel Building { get; set; }
+        public int WardID { get; set; }
+
+        public string WardDescription { get; set; }
+
+        public string Specialty { get; set; }
+
+        public int? BuildingID { get; set;  }
+
+        public override string ToString()
+        {
+            return Specialty;
+        }
+    }
+    
+
 }

@@ -77,7 +77,4 @@
     <Build Include="dbo\Tables\Service.sql" />
     <Build Include="dbo\Tables\RecordStaff.sql" />
   </ItemGroup>
-  <ItemGroup>
-    <PostDeploy Include="dbo\Tables\Insert.PostDeployment.sql" />
-  </ItemGroup>
 </Project>

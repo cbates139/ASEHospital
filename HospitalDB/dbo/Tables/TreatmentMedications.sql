@@ -1,5 +1,4 @@
 ﻿-- Linking Tables 
--- Linking Tables 
 CREATE TABLE [dbo].[TreatmentMedications] (
     TreatmentID INT  NOT NULL,
     MedicationID INT  NOT NULL,
