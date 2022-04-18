@@ -14,5 +14,11 @@ namespace Hospital.User_Controls.Admin
         {
             InitializeComponent();
         }
+
+        private void btnRegisterPatient_Click(object sender, EventArgs e)
+        {
+            RegisterPation RP = new RegisterPation();
+            RP.ShowDialog();
+        }
     }
 }

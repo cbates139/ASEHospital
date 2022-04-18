@@ -11,6 +11,8 @@ Post-Deployment Script Template
 */
 -- Dylan's Dummy Data
 -- Yeah all staff live at the same address because I'm lazy.
+DELETE FROM [dbo].[Record];
+
 DELETE FROM [dbo].[Service];
 DELETE FROM [dbo].[Staff];
 
@@ -24,6 +26,7 @@ DELETE FROM [dbo].[Address];
 DELETE FROM [dbo].[Medication];
 
 
+DBCC CHECKIDENT ('Record', RESEED, 0);
 DBCC CHECKIDENT ('Staff', RESEED, 0);
 DBCC CHECKIDENT ('Address', RESEED, 0);
 DBCC CHECKIDENT ('Medication', RESEED, 0);

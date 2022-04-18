@@ -12,24 +12,74 @@ namespace Hospital.Models
         public string MobileNo { get; set; }
         public string Email { get; set; }
         public DateTime Dob { get; set; }
+        public PiiModel(string FirstName,
+                        string LastName,
+                        string MobileNo,
+                        string Email,
+                        DateTime Dob)
+        {
+            this.FirstName = FirstName;
+            this.LastName = LastName;
+            this.MobileNo = MobileNo;
+            this.Email = Email;
+            this.Dob = Dob;
+        }
 
+        public override string ToString()
+        {
+            return FirstName + " " + LastName;
+        }
     }
 
     public class AddressModel
     {
+        public int Id { get; set; }
         public string AddressLine1 { get; set; }
         public string AddressLine2 { get; set; }
         public string AddressLine3 { get; set; }
         public string City { get; set; }
         public string Region { get; set; }
-        public string PostalCode { get; set; }
+        public string PostCode { get; set; }
+        public AddressModel(string AddressLine1,
+                            string AddressLine2,
+                            string AddressLine3,
+                            string City,
+                            string Region,
+                            string PostCode)
+        {
+            this.AddressLine1 = AddressLine1;
+            this.AddressLine2 = AddressLine2;
+            this.AddressLine3 = AddressLine3;
+            this.City = City;
+            this.Region = Region;
+            this.PostCode = PostCode;
+        }
+    }
+
+    public class EmergencyContactModel
+    {
+        public string EName { get; set; }
+        public string ELastName { get; set; }
+
+        public string EMobileNumber { get; set; }
+        public string ERelation { get; set; }
+        public EmergencyContactModel(string EName,
+                                     string ELastName,
+                                     string EMobileNumber,
+                                     string ERelation)
+        {
+            this.EName = EName;
+            this.ELastName = ELastName;
+            this.EMobileNumber = EMobileNumber;
+            this.ERelation = ERelation;
+        }
     }
 
     public class ServiceModel
-    { 
+    {
         public StaffModel Consultant { get; set; }
         public List<StaffModel> Juniors { get; set; } = new List<StaffModel>();
-        
+
         override public string ToString()
         {
             return Consultant.first_name + " " + Consultant.last_name;
@@ -48,6 +98,36 @@ namespace Hospital.Models
         }
     }
 
+    public class BuildingModel
+    {
+        public int BuildingID { get; set; }
+
+        public int? AddressID { get; set; }
+
+        public string BuildingName { get; set; }
+
+        public override string ToString()
+        {
+            return BuildingName;
+        }
+    }
+    public class WardModel
+    {
+
+        public BuildingModel Building { get; set; }
+        public int WardID { get; set; }
+
+        public string WardDescription { get; set; }
+
+        public string Specialty { get; set; }
+
+        public int? BuildingID { get; set; }
+
+        public override string ToString()
+        {
+            return Specialty;
+        }
+    }
 
     public class RecordModel
     {

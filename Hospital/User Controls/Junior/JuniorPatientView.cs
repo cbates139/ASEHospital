@@ -40,7 +40,9 @@ namespace Hospital.User_Controls
         }
         private void InitialisePatientList()
         {
-            //TODO: update patient list from database
+            List<PiiModel> people = DBConnection.GetAllFromPii();
+            patientList_listbox.Items.Clear();
+            patientList_listbox.Items.AddRange(people.ToArray());
         }
         private void InitialiseMedication()
         {
