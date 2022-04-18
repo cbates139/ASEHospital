@@ -67,9 +67,40 @@ namespace Hospital.Utilities
             
         }
 
-        public static void GetAllFromTable(string table)
+        public static List<PiiModel> GetAllFromPii()
         {
+            List<PiiModel> people = new List<PiiModel>();
 
+            connection.Open();
+
+            SqlCommand cmd = new SqlCommand($"SELECT * FROM  Pii", connection);
+            SqlDataReader reader = cmd.ExecuteReader();
+            
+            while (reader.Read())
+            {
+                people.Add(new PiiModel(
+                    (string)reader["FirstName"],
+                    (string)reader["LastName"],
+                    (string)reader["MobileNo"],
+                    (string)reader["FirstName"],
+                    (DateTime)reader["Dob"]
+                ));
+            }
+
+            connection.Close();
+
+            return people;
+        }
+        public static void SubmitRecord(RecordModel record)
+        {
+            string query = $"INSERT INTO Record VALUES ({ record.StaffID }, { record.PatientID }, { record.RoomID }, '{ record.ReasonForVisit}')";
+            SqlCommand command = new SqlCommand(query, connection);
+
+            connection.Open();
+
+            command.ExecuteNonQuery();
+
+            connection.Close();
         }
 
         public static void RegisterPatient()
@@ -91,17 +122,6 @@ namespace Hospital.Utilities
 
             connection.Close();
         }
-
-        #region Matthew's Individual Part
-        public static void AddTreatment()
-        {
-        }
-        
-        public static void AddRecord()
-        {
-
-        }
-        #endregion
 
 
         #region Callum's Individual Part

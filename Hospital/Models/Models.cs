@@ -24,6 +24,11 @@ namespace Hospital.Models
             this.Email = Email;
             this.Dob = Dob;
         }
+
+        public override string ToString()
+        {
+            return FirstName + " " + LastName;
+        }
     }
 
     public class AddressModel
@@ -124,4 +129,18 @@ namespace Hospital.Models
         }
     }
 
+    public class RecordModel
+    {
+        public int StaffID { get; set; }
+        public int PatientID { get; set; }
+        public int RoomID { get; set; }
+        public string ReasonForVisit { get; set; }
+        public RecordModel(int StaffID, int PatientID, int RoomID, string ReasonForVisit)
+        {
+            this.StaffID = StaffID;
+            this.PatientID = PatientID;
+            this.RoomID = RoomID;
+            this.ReasonForVisit = ReasonForVisit;
+        }
+    }
 }
