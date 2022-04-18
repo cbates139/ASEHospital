@@ -75,8 +75,9 @@
     <Build Include="dbo\Tables\TreatmentMedications.sql" />
     <Build Include="dbo\Tables\TreatmentRecords.sql" />
     <Build Include="dbo\Tables\Service.sql" />
+    <Build Include="dbo\Tables\RecordStaff.sql" />
   </ItemGroup>
   <ItemGroup>
-    <PostDeploy Include="dbo\Tables\Insert.PostDeployment.sql" />
+    <PostDeploy Include="Insert.PostDeployment.sql" />
   </ItemGroup>
 </Project>
