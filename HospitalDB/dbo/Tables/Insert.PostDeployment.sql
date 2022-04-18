@@ -13,10 +13,25 @@ Post-Deployment Script Template
 -- Yeah all staff live at the same address because I'm lazy.
 DELETE FROM [dbo].[Service];
 DELETE FROM [dbo].[Staff];
+
+DELETE FROM [dbo].[Pii];
+DELETE FROM [dbo].[EmergencyContact];
+
+DELETE FROM [dbo].[Room];
+DELETE FROM [dbo].[Ward];
+DELETE FROM [dbo].[Building];
 DELETE FROM [dbo].[Address];
+DELETE FROM [dbo].[Medication];
+
 
 DBCC CHECKIDENT ('Staff', RESEED, 0);
 DBCC CHECKIDENT ('Address', RESEED, 0);
+DBCC CHECKIDENT ('Medication', RESEED, 0);
+DBCC CHECKIDENT ('Building', RESEED, 0);
+DBCC CHECKIDENT ('Ward', RESEED, 0);
+DBCC CHECKIDENT ('Room', RESEED, 0);
+DBCC CHECKIDENT ('EmergencyContact', RESEED, 0);
+DBCC CHECKIDENT ('Pii', RESEED, 0);
 
 INSERT INTO [dbo].[Address] (
     AddressLine1,
@@ -106,3 +121,61 @@ VALUES
     ( 2,7 ),
     ( 3,8 ),
     ( 3,9 );
+
+-- Matthew's Dummy Data
+INSERT INTO [dbo].Medication(
+   MedicationName
+)
+VALUES
+    (
+        'Morphine'
+    ),
+  (
+        'Oxycodone'
+    ),
+  (
+        'Buscopan'
+    ),
+  (
+        'Amitriptyline'
+    ),
+  (
+        'Tramadol'
+    ),
+  (
+        'Codeine'
+    ),
+(
+        'Paracetamol'
+    );
+INSERT INTO [dbo].Building(
+   AddressID,
+   BuildingName
+)
+VALUES
+    (
+        '1',
+        'Hospital ASE'
+    );
+INSERT INTO [dbo].Ward(
+   WardDescription,
+   Specialty,
+   BuildingID
+)
+VALUES
+    (
+        'diagnose, assess and treat patients with defects and diseases of the heart and the blood vessels',
+        'Cardiology',
+        '1'
+    );
+INSERT INTO [dbo].Room(
+   BedCount,
+   RoomDescription,
+   WardID
+)
+VALUES
+    (
+        '4',
+        'Special Equipment',
+        '1'
+    );

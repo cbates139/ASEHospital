@@ -1,6 +1,6 @@
 ﻿-- Secondary Tables
 CREATE TABLE [dbo].[Pii] (
-    PatientID INT  NOT NULL PRIMARY KEY,
+    PatientID INT  NOT NULL IDENTITY(1,1) PRIMARY KEY,
     FirstName VARCHAR (20)  NOT NULL,
     LastName VARCHAR (20) NOT NULL,
     Dob DATETIME NOT NULL,
