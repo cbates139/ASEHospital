@@ -71,6 +71,31 @@ namespace Hospital.Utilities
         {
 
         }
+        public static void SubmitRecord(RecordModel record)
+        {
+            string query = "INSERT INTO Record (StaffID, PatientID, RoomID, ReasonForVisit) VALUES(@StaffID, @PatientID, @RoomID, @ReasonForVisit)";
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@StaffID", record.StaffID);
+            command.Parameters.AddWithValue("@PatientID", record.PatientID);
+            command.Parameters.AddWithValue("@RoomID", record.RoomID);
+            command.Parameters.AddWithValue("@ReasonForVisit", record.ReasonForVisit);
+
+            try
+            {
+                connection.Open();
+                command.ExecuteNonQuery();
+                Console.WriteLine("Record Inserted Successfully");
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine("Error Generated. Details: " + e.ToString());
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
 
         public static void RegisterPatient()
         {

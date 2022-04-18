@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using Hospital.Models;
+using Hospital.Utilities;
 
 namespace Hospital.User_Controls
 {
@@ -114,6 +115,7 @@ namespace Hospital.User_Controls
             else 
             {             
                 RecordModel record = new Models.RecordModel(StaffID, PatientID, RoomID, ReasonForVisit);
+                DBConnection.SubmitRecord(record);
                 {   //Close Patient Treat Patient Details
                     patientDetail_panel.Visible = false;
                     submitTreatment_panel.Visible = false;
