@@ -29,6 +29,16 @@ namespace Hospital
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
+            //Send details to server to validate.
+
+            //On successful response, store session data and go to main menu.
+            LoginForm m = new LoginForm(this);
+            
+            //Hide this menu.
+            Hide();
+
+            //Show login routes menu. (Demo page).
+            m.Show();
         }
     }
 }

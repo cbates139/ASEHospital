@@ -1,4 +1,5 @@
 ﻿using Hospital.User_Controls;
+using Hospital.User_Controls.Consultant;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,16 +12,19 @@ namespace Hospital
 {
     public partial class ConsultantForm : Form
     {
+        readonly LoginMenu MainMenu;
+
         NavigationControl navigationControl;
         NavigationButtons navigationButtons;
 
         Color btnDefaultColour = Color.FromKnownColor(KnownColor.ControlLight);
         Color btnSelectedColour = Color.FromKnownColor(KnownColor.ControlDark);
-        public ConsultantForm()
+        public ConsultantForm(LoginMenu menuInstance)
         {
             InitializeComponent();
             InitialiseNavigationControl();
             InitialiseNavigationButtons();
+            MainMenu = menuInstance;
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -30,7 +34,7 @@ namespace Hospital
         private void InitialiseNavigationControl()
         {
             List<UserControl> userControls = new List<UserControl>() //User Control List
-            { new ConsultantHome(), new ConsultantPatientView(),  new ConsultantServiceManage()};
+            { new ConsultantHome(), new ConsultantPatientView(),  new ConsultantServiceManage(), new ServiceManagement()};
 
             navigationControl = new NavigationControl(userControls, panel2); //Create instance of navigation control class
             navigationControl.Display(0); //display  UserControl as Default
@@ -45,8 +49,9 @@ namespace Hospital
         }
         private void logout_button_Click(object sender, EventArgs e)
         {
-            //TO-DO:
-            //navigationControl.Display(0);
+            Hide();
+            MainMenu.Show();
+            Close();
 
         }
         private void home_button_Click(object sender, EventArgs e)

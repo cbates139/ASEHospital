@@ -33,12 +33,15 @@ namespace Hospital.User_Controls.Admin
             this.btnUpdatePatientInfo = new System.Windows.Forms.Button();
             this.btnDeletePatient = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.imageLogo = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.imageLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // btnRegisterPatient
             // 
             this.btnRegisterPatient.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnRegisterPatient.Location = new System.Drawing.Point(159, 84);
+            this.btnRegisterPatient.Location = new System.Drawing.Point(336, 234);
             this.btnRegisterPatient.Name = "btnRegisterPatient";
             this.btnRegisterPatient.Size = new System.Drawing.Size(263, 45);
             this.btnRegisterPatient.TabIndex = 1;
@@ -49,7 +52,7 @@ namespace Hospital.User_Controls.Admin
             // btnUpdatePatientInfo
             // 
             this.btnUpdatePatientInfo.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnUpdatePatientInfo.Location = new System.Drawing.Point(159, 148);
+            this.btnUpdatePatientInfo.Location = new System.Drawing.Point(336, 326);
             this.btnUpdatePatientInfo.Name = "btnUpdatePatientInfo";
             this.btnUpdatePatientInfo.Size = new System.Drawing.Size(263, 45);
             this.btnUpdatePatientInfo.TabIndex = 2;
@@ -59,7 +62,7 @@ namespace Hospital.User_Controls.Admin
             // btnDeletePatient
             // 
             this.btnDeletePatient.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnDeletePatient.Location = new System.Drawing.Point(159, 217);
+            this.btnDeletePatient.Location = new System.Drawing.Point(336, 419);
             this.btnDeletePatient.Name = "btnDeletePatient";
             this.btnDeletePatient.Size = new System.Drawing.Size(263, 45);
             this.btnDeletePatient.TabIndex = 3;
@@ -70,23 +73,45 @@ namespace Hospital.User_Controls.Admin
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(143, 14);
+            this.label8.Location = new System.Drawing.Point(320, 129);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(315, 45);
             this.label8.TabIndex = 51;
             this.label8.Text = "Patient Managment";
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(109, 3);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(45, 15);
+            this.linkLabel1.TabIndex = 53;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Logout";
+            // 
+            // imageLogo
+            // 
+            this.imageLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.imageLogo.Location = new System.Drawing.Point(3, 3);
+            this.imageLogo.Name = "imageLogo";
+            this.imageLogo.Size = new System.Drawing.Size(100, 100);
+            this.imageLogo.TabIndex = 52;
+            this.imageLogo.TabStop = false;
+            // 
             // AdminPatientManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.imageLogo);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.btnDeletePatient);
             this.Controls.Add(this.btnUpdatePatientInfo);
             this.Controls.Add(this.btnRegisterPatient);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AdminPatientManagement";
-            this.Size = new System.Drawing.Size(648, 369);
+            this.Size = new System.Drawing.Size(998, 566);
+            ((System.ComponentModel.ISupportInitialize)(this.imageLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -97,5 +122,7 @@ namespace Hospital.User_Controls.Admin
         private System.Windows.Forms.Button btnUpdatePatientInfo;
         private System.Windows.Forms.Button btnDeletePatient;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.PictureBox imageLogo;
     }
 }
